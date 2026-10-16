@@ -23,8 +23,8 @@ const Header = () => {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         
         {/* Logo links back to the top of the home page */}
-        <Link  href="#home" className="text-xl font-bold tracking-tight text-[#818CF8] hover:opacity-80 transition-opacity">
-          <span className='text-[#22D3EE]'>fatima</span>.dev()
+        <Link  href="#home" className="text-xl font-semibold  tracking-tight text-[#818CF8] hover:opacity-80 transition-opacity">
+          <span className='text-[#22D3EE] sans-serif'>fatima</span>.dev()
         </Link>
 
         {/* Desktop Navigation Links */}
