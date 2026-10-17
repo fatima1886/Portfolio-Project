@@ -296,3 +296,28 @@ html {
     @apply font-sans;
   }
 }
+
+
+/* Custom scrollbar styling for the entire website */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #71717200; /* Your blue-500 color */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4338ca; /* Your indigo-700 color */
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #1124c900; /* Your indigo-400 color */
+}
+
+/* Firefox Support fallback */
+html {
+  scrollbar-width: thin;
+  scrollbar-color:  rgb(11, 157, 157);
+}

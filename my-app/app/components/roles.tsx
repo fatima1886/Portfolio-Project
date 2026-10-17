@@ -52,7 +52,7 @@ export const DynamicRoleBadge = () => {
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="inline-flex items-center text-sm md:text-base font-mono text-cyan-400 bg-cyan-950/20   px-2 py-2 rounded-full tracking-wide backdrop-blur-sm h-[38px]"
+      className="inline-flex items-center text-[12px] md:text-[12px] font-mono text-cyan-400 bg-cyan-950/20   px-2 py-2 rounded-full tracking-wide backdrop-blur-sm h-[38px]"
     >
         <span className='w-2 h-2 rounded-full bg-cyan-400 mr-2'></span>
       <span className="opacity-60 mr-1.5">//</span> 

@@ -18,7 +18,7 @@ export default function HeroVisual() {
         delay: 0.5, // Delays slightly so it appears after your headline starts animating
         ease: [0.16, 1, 0.3, 1] // Premium ultra-smooth ease-out curve
       }}
-      className="relative isolate mx-auto flex min-h-[470px] w-full max-w-[580px] items-center justify-center md:pt-20"
+      className="relative isolate mx-auto flex min-h-[470px] w-full max-w-[580px] items-center justify-center md:pt-20 "
     >
 
       {/* Background glow */}
@@ -78,7 +78,7 @@ export default function HeroVisual() {
       </div>
 
       {/* Floating terminal */}
-      <div className="animate-[float_5s_ease-in-out_infinite] absolute right-0 top-[9%] z-20 w-[205px] rounded-xl border border-[#343B50] bg-[#141D31] p-4 shadow-xl [animation-delay:-1.5s]">
+      <div className="hidden animate-[float_5s_ease-in-out_infinite] absolute right-0 top-[9%] z-20 w-[205px] rounded-xl border border-[#343B50] bg-[#141D31] p-4 shadow-xl [animation-delay:-1.5s]">
         <div className="mb-3 flex items-center gap-2 text-xs font-semibold text-[#F1F5F9]">
           <span className="size-2 rounded-full bg-[#22D3EE] shadow-[0_0_10px_#22D3EE]" />
           Terminal

@@ -49,6 +49,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Outfit } from "next/font/google"; 
 import Header from "./components/header";
 import "./globals.css";
+import { isFavicon } from "next/dist/lib/metadata/metadata-resolution-primitives";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
