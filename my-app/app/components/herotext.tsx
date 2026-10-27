@@ -180,7 +180,7 @@ const Herotext = () => {
   </span>
 
   {/* Last Name Column - Forced into its own block row beneath */}
-  <span className="text-[#818CF8] block drop-shadow-[0_0_15px_rgba(129,140,248,0.15)] whitespace-nowrap">
+  <span className="text-emerald-400 block drop-shadow-[0_0_15px_rgba(129,140,248,0.15)] whitespace-nowrap">
     {nameLast.split("").map((char, index) => (
       <StaggeredLetter 
         key={`last-${index}`} 
@@ -220,7 +220,7 @@ Every project I build starts with a simple question: How will a human feel when 
         className="group relative w-full sm:w-auto text-center font-sans text-xs font-bold tracking-wider uppercase px-7 py-4 rounded-xl bg-slate-50 text-slate-950 hover:bg-slate-200 transition-colors flex items-center justify-center gap-2.5 shadow-xl shadow-indigo-500/5"
       >
         <span>Get In Touch</span>
-        <ArrowUpRight className="h-4 w-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-indigo-500" />
+        <ArrowUpRight className="h-4 w-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-emerald-400" />
       </motion.a>
 
       {/* 🌌 SECONDARY CALL TO ACTION: EXPLORE PROJECTS */}
@@ -229,12 +229,12 @@ Every project I build starts with a simple question: How will a human feel when 
         onClick={handleScrollToProjects}
         whileHover={{ scale: 1.03, y: -2 }}
         whileTap={{ scale: 0.98 }}
-        className="group w-full sm:w-auto text-center font-sans text-xs font-bold tracking-wider uppercase px-7 py-4 rounded-xl border border-indigo-400 bg-slate-950/40 text-slate-400 hover:border-indigo-400/40 hover:text-slate-200 transition-all flex items-center justify-center gap-2.5 backdrop-blur-sm relative overflow-hidden"
+        className="group w-full sm:w-auto text-center font-sans text-xs font-bold tracking-wider uppercase px-7 py-4 rounded-xl border border-emerald-400 bg-slate-950/40 text-slate-400 hover:border-indigo-400/40 hover:text-slate-200 transition-all flex items-center justify-center gap-2.5 backdrop-blur-sm relative overflow-hidden"
       >
         {/* Subtle hover background accent mimicking your card wrapper styling */}
         <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/0 via-indigo-500/5 to-indigo-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         
-        <Compass className="h-4 w-4 text-cyan-400/80 group-hover:rotate-45 transition-transform duration-500" />
+        <Compass className="h-4 w-4 text-orange-300 group-hover:rotate-45 transition-transform duration-500" />
         <span>Explore Projects</span>
       </motion.a>
     </motion.div>

@@ -32,49 +32,14 @@ export default function Skills() {
     <section id="skills" className=" px-4 sm:px-10 max-w-7xl mx-auto overflow-hidden antialiased">
       
       {/* 🌌 IMMERSIVE HEADER SECTION */}
-      <div className="mb-14 font-mono select-none text-cyan-400">
+      <div className="mb-14 font-mono select-none text-orange-400">
         <div className="text-[11px] font-semibold tracking-[0.2em] uppercase flex items-center gap-2.5">
-          <Terminal className="h-3.5 w-3.5 animate-pulse text-indigo-400" />
+          <Terminal className="h-3.5 w-3.5 animate-pulse text-orange-400" />
           <span>// Verified Technology Stack</span>
         </div>
       </div>
 
-      {/* 💻 LAPTOP/DESKTOP VIEW: STAGGERED TERM GRID (Hidden on Mobile) */}
-      {/* <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4 w-full">
-        {skillsData.map((skill, idx) => {
-          const IconComponent = skill.icon;
-          return (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.05, ease: "easeOut" }}
-              whileHover={{ 
-                scale: 1.02, 
-                y: -4,
-                boxShadow: `0 15px 30px ${skill.glow}`,
-                borderColor: "rgba(129, 140, 248, 0.4)"
-              }}
-            //   className={`flex items-center gap-4 p-5 rounded-xl border border-slate-800/80 bg-gradient-to-b from-slate-900/50 to-slate-950/70 backdrop-blur-md cursor-default transition-colors duration-300 group ${skill.name === "Next.js" ? "border-cyan-400" : ""}`}
-            className={`flex items-center gap-4 p-5 rounded-xl border backdrop-blur-md cursor-default transition-all duration-300 group ${
-  skill.name === "Next.js" 
-    ? "border-indigo-400 bg-gradient-to-b from-slate-900/80 to-slate-950/90 shadow-[0_0_20px_rgba(34,211,238,0.15)]" 
-    : "border-slate-800/80 bg-gradient-to-b from-slate-900/50 to-slate-950/70"
-}`}
-
-            >
-              <div className={`p-3 rounded-lg bg-slate-950 border border-slate-900/60 shadow-inner group-hover:scale-110 transition-transform duration-300 ${skill.color}`}>
-                <IconComponent className="h-5 w-5" />
-              </div>
-              <div className="flex flex-col justify-center">
-                <span className="font-sans text-sm font-black text-slate-100 tracking-wide">{skill.name}</span>
-                <span className="font-mono text-[10px] text-slate-500 tracking-wider uppercase mt-0.5">{skill.label}</span>
-              </div>
-            </motion.div>
-          );
-        })}
-      </div> */}
+   
 
 
       <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-5 w-full">
@@ -99,7 +64,7 @@ export default function Skills() {
         style={{ transformStyle: "preserve-3d" }}
         className={`relative flex items-center gap-4 p-5 rounded-2xl border backdrop-blur-xl cursor-pointer transition-all duration-300 group overflow-hidden ${
           isNext 
-            ? "border-indigo-500/80 bg-gradient-to-br from-indigo-950/20 via-slate-900/60 to-slate-950/90 shadow-[0_0_25px_rgba(129,140,248,0.12)]" 
+            ? "border-emerald-500/80 bg-gradient-to-br from-indigo-950/20 via-slate-900/60 to-slate-950/90 shadow-[0_0_25px_rgba(129,140,248,0.12)]" 
             : "border-slate-800/60 bg-gradient-to-b from-slate-900/40 to-slate-950/80 hover:border-slate-700/80"
         }`}
       >

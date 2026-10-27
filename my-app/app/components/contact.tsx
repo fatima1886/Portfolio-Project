@@ -1,98 +1,3 @@
-// import { useState } from "react";
-// export function Contact() {
-
-// const [issubmit, setissubmit] = useState(false)
-//     async function handleSubmit(e: any) {
-//         e.preventDefault();
-//         const response = await fetch("https://api.web3forms.com/submit", {
-//             method: "POST",
-//             headers: {
-//                 "Content-Type": "application/json",
-//                 Accept: "application/json",
-//             },
-//             body: JSON.stringify({
-//                 access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
-//                 name: e.target.name.value,
-//                 email: e.target.email.value,
-//                 message: e.target.message.value,
-//             }),
-//         });
-//         const result = await response.json();
-//         if (result.success) {
-//             console.log(result);
-//             setissubmit(true)
-
-//             // Optional: reset the form elements after successful submission
-//             e.target.reset();
-//         }
-//     }
-
-//     return (
-//         <section className="bg-[#0B1020] text-white py-16 px-4 md:px-8 flex items-center justify-center min-h-[80vh]">
-//             <div className="max-w-xl w-full bg-[#131B31] border border-slate-800 rounded-2xl p-8 shadow-2xl">
-//                 <h2 className="text-3xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent mb-2">
-//                     Get In Touch
-//                 </h2>
-//                 <p className="text-slate-400 mb-8 text-sm">
-//                     Have a question or want to work together? Drop a message below!
-//                 </p>
-
-//                 <form onSubmit={handleSubmit} className="space-y-6">
-//                     <div>
-//                         <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">
-//                             Name
-//                         </label>
-//                         <input 
-//                             type="text" 
-//                             name="name" 
-//                             id="name"
-//                             required 
-//                             placeholder="Your name" 
-//                             className="w-full bg-[#0B1020] border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors"
-//                         />
-//                     </div>
-                    
-//                     <div>
-//                         <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
-//                             Email
-//                         </label>
-//                         <input 
-//                             type="email" 
-//                             name="email" 
-//                             id="email"
-//                             required 
-//                             placeholder="email@example.com" 
-//                             className="w-full bg-[#0B1020] border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors"
-//                         />
-//                     </div>
-                    
-//                     <div>
-//                         <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">
-//                             Message
-//                         </label>
-//                         <textarea 
-//                             name="message" 
-//                             id="message"
-//                             required 
-//                             rows={4} 
-//                             placeholder="Enter Message"
-//                             className="w-full bg-[#0B1020] border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors resize-none"
-//                         ></textarea>
-//                     </div>
-
-//                     <button 
-//                         type="submit"
-//                         className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-3 rounded-lg transition-colors shadow-lg shadow-indigo-600/20 active:scale-[0.98]"
-//                     >
-//                        {issubmit ? 'Submitted ✅' : 'Submit'}
-//                     </button>
-//                 </form>
-//             </div>
-//         </section>
-//     );
-// }
-
-
 
 
 
@@ -197,7 +102,7 @@ export function Contact() {
 
             {/* Main Form Container Card */}
             <div className="max-w-xl w-full bg-[#131B31]/75 backdrop-blur-xl border border-slate-800 rounded-2xl p-8 shadow-2xl relative z-10">
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent mb-2">
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-400 to-purple-400 bg-clip-text text-transparent mb-2">
                     Get In Touch
                 </h2>
                 <p className="text-slate-400 mb-8 text-sm">
@@ -237,7 +142,7 @@ export function Contact() {
 
                     <button 
                         type="submit" disabled={isloading}
-                        className="w-full bg-indigo-600 hover:bg-indigo-500 disabled:bg-indigo-800 disabled:cursor-not-allowed text-white font-medium py-3 rounded-lg transition-colors shadow-lg shadow-indigo-600/20 active:scale-[0.98]"
+                        className="w-full bg-emerald-600 hover:bg-emerald-500 disabled:bg-emerald-800 disabled:cursor-not-allowed text-white font-medium py-3 rounded-lg transition-colors shadow-lg shadow-indigo-600/20 active:scale-[0.98]"
                     >
                        {isloading ? 'Sending Message...' : issubmit ? 'Submitted ✔️' : 'Submit'}
                     </button>

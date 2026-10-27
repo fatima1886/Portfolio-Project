@@ -25,12 +25,12 @@ export default function HeroVisual() {
       <div className="absolute -z-10 aspect-square w-[65%] rounded-full bg-[#818CF8]/20 blur-[80px]" />
 
       {/* Decorative orbit */}
-      <div className="absolute h-[80%] w-[85%] -rotate-12 scale-y-75 rounded-[50%] border border-[#818CF8]/10">
+      <div className="absolute h-[80%] w-[85%] -rotate-12 scale-y-75 rounded-[50%] border border-emerald-400/10">
         <span className="absolute right-[15%] top-[12%] size-2 rounded-full bg-[#22D3EE] shadow-[0_0_20px_#22D3EE]" />
       </div>
 
       {/* Main code editor */}
-      <div className="animate-[float_6s_ease-in-out_infinite] relative z-10 w-[80%] overflow-hidden rounded-xl border border-[#818CF8]/40 bg-[#11192C] shadow-[0_24px_70px_#00000045]">
+      <div className="animate-[float_6s_ease-in-out_infinite] relative z-10 w-[80%] overflow-hidden rounded-xl border border-emerald-400/40 bg-[#11192C] shadow-[0_24px_70px_#00000045]">
 
         {/* Window header */}
         <div className="flex items-center gap-3 border-b border-[#343B50] px-4 py-3.5 font-mono text-[11px] text-[#94A3B8]">

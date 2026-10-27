@@ -23,8 +23,8 @@ const Header = () => {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         
         {/* Logo links back to the top of the home page */}
-        <Link  href="#home" className="text-xl font-semibold  tracking-tight text-[#818CF8] hover:opacity-80 transition-opacity">
-          <span className='text-[#22D3EE] sans-serif'>fatima</span>.dev()
+        <Link  href="#home" className="text-xl font-semibold  tracking-tight text-orange-400 hover:opacity-80 transition-opacity">
+          <span className='text-emerald-400 sans-serif'>fatima</span>.dev()
         </Link>
 
         {/* Desktop Navigation Links */}
@@ -34,7 +34,7 @@ const Header = () => {
               <li key={link.id}>
                 <Link 
                   href={link.id} 
-                  className="cursor-pointer  hover:text-[#818CF8] transition-colors py-2"
+                  className="cursor-pointer  hover:text-emerald-400 transition-colors py-2"
                 >
                   {link.label}
                 </Link>
@@ -63,7 +63,7 @@ const Header = () => {
         }`}
       >
         <nav className="px-6 py-6">
-          <ul className="flex flex-col gap-4 text-base font-medium text-[#F1F5F9]">
+          <ul className="flex flex-col gap-4 text-base font-medium text-emerald-400">
             {navLinks.map((link) => (
               <li key={link.id} className="w-full">
                 <Link 

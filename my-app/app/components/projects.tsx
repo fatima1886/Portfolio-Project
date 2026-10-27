@@ -133,7 +133,7 @@
           
 //           <div className="space-y-4">
 //             <h3 className="font-sans text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl text-slate-100 leading-none">
-//               AI Interface Generator<span className="text-indigo-400 font-light">.</span>
+//               AI Interface Generator<span className="text-emerald-400 font-light">.</span>
 //             </h3>
 
 //             <p className="font-sans text-sm sm:text-base leading-relaxed text-slate-400 max-w-xl font-normal tracking-wide">
@@ -198,7 +198,7 @@
 //                 <span className="w-2.5 h-2.5 rounded-full bg-slate-800/80" />
 //               </div>
 //               <span className="flex items-center gap-1.5 text-slate-400/70 font-medium">
-//                 <Cpu className="h-3 w-3 text-indigo-400/60" /> 
+//                 <Cpu className="h-3 w-3 text-emerald-400/60" /> 
 //                 network_preview.png
 //               </span>
 //             </div>
@@ -239,7 +239,7 @@ export default function Projects({ heading1, heading2, para, array, github, vers
   img: string;
 }) {
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 ">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:pt-0 ">
       {/* 🌌 ANIMATED IMMERSIVE CARD CONTAINER */}
       <motion.div 
         // Scroll configuration settings
@@ -266,7 +266,7 @@ export default function Projects({ heading1, heading2, para, array, github, vers
             className="space-y-4"
           >
             <h3 className="font-sans text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl text-slate-100 leading-none">
-              {heading1} <span className="text-indigo-400">{heading2}</span><span className="text-indigo-400 font-light">.</span>
+              {heading1} <span className="text-emerald-400">{heading2}</span><span className="text-emerald-400 font-light">.</span>
             </h3>
 
             <p className="font-sans text-sm sm:text-base leading-relaxed text-slate-400 max-w-xl font-normal tracking-wide">
@@ -306,7 +306,7 @@ export default function Projects({ heading1, heading2, para, array, github, vers
                 href={versel} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="group font-sans text-xs font-bold tracking-wider uppercase px-5 py-3.5 rounded-lg bg-indigo-500 text-slate-100 hover:bg-indigo-600 transition-all flex items-center gap-2 shadow-md shadow-white/5 active:scale-[0.98]"
+                className="group font-sans text-xs font-bold tracking-wider uppercase px-5 py-3.5 rounded-lg bg-emerald-400 text-slate-800 hover:bg-emerald-500 transition-all flex items-center gap-2 shadow-md shadow-white/5 active:scale-[0.98]"
               >
                 <span>Live Deployment</span>
                 <ArrowUpRight className="h-3.5 w-3.5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -316,7 +316,7 @@ export default function Projects({ heading1, heading2, para, array, github, vers
                 href={github} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="font-sans text-xs font-semibold tracking-wider uppercase px-5 py-3.5 rounded-lg border border-[#818CF8] bg-transparent text-slate-400 hover:border-slate-700 hover:text-slate-200 transition-all flex items-center gap-2 backdrop-blur-sm active:scale-[0.98]"
+                className="font-sans text-xs font-semibold tracking-wider uppercase px-5 py-3.5 rounded-lg border border-emerald-400 bg-transparent text-slate-400 hover:border-slate-700 hover:text-slate-200 transition-all flex items-center gap-2 backdrop-blur-sm active:scale-[0.98]"
               >
                 <Code2 className="h-3.5 w-3.5" />
                 <span>Source Code</span>
@@ -339,7 +339,7 @@ export default function Projects({ heading1, heading2, para, array, github, vers
         >
           
           {/* Subtle Ambient Outer Glow */}
-          <div className="absolute -inset-1 rounded-xl bg-gradient-to-tr from-indigo-500/10 to-purple-500/5 opacity-40 blur-xl group-hover/mockup:opacity-70 transition-opacity duration-700" />
+          <div className="absolute -inset-1 rounded-xl bg-gradient-to-tr from-emerald-500/20 to-orange-500/5 opacity-40 blur-xl group-hover/mockup:opacity-70 transition duration-700" />
           
           {/* The Visual Container Canvas Frame */}
           <div className="relative overflow-hidden rounded-xl border border-slate-800/90 bg-slate-950/80 p-1.5 shadow-2xl transition-all duration-200 group-hover/mockup:border-indigo-500/30">
@@ -352,7 +352,7 @@ export default function Projects({ heading1, heading2, para, array, github, vers
                 <span className="w-2.5 h-2.5 rounded-full bg-green-500" />
               </div>
               <span className="flex items-center gap-1.5 text-slate-400/70 font-medium">
-                <Cpu className="h-3 w-3 text-indigo-400/60" /> 
+                <Cpu className="h-3 w-3 text-emerald-400/60" /> 
                 network_preview.png
               </span>
             </div>
