@@ -52,9 +52,17 @@ export const DynamicRoleBadge = () => {
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="inline-flex items-center text-[12px] md:text-[12px] font-mono text-orange-400 bg-orange-950/20   px-2 py-2 rounded-full tracking-wide backdrop-blur-sm h-[38px]"
+      className="inline-flex items-center text-[12px] md:text-[12px] font-mono text-(--muted-teal)    px-2 py-2 rounded-full tracking-wide backdrop-blur-sm h-[38px]"
     >
-        <span className='w-2 h-2 rounded-full bg-orange-400 mr-2'></span>
+        {/* <span className='w-2 h-2 rounded-full bg-(--turquoise-surf)  mr-2'></span> */}
+        <span className="relative mr-2.5 flex size-2.5 items-center justify-center">
+  {/* Soft blurred glowing halo */}
+  <span className="absolute inline-flex size-4 animate-ping  [animation-duration:2.5s] rounded-full bg-(--neon-ice) opacity-60 blur-[3px]" />
+  <span className="absolute inline-flex size-3 animate-pulse  [animation-duration:3s] rounded-full bg-(--turquoise-surf) blur-[2px]" />
+  
+  {/* Crisp inner dot */}
+  <span className="relative inline-flex size-2 rounded-full bg-(--turquoise-surf) shadow-[0_0_8px_var(--neon-ice)]" />
+</span>
       <span className="opacity-60 mr-1.5">//</span> 
       
       <span>{currentText}</span>
@@ -63,7 +71,7 @@ export const DynamicRoleBadge = () => {
       <motion.span
         animate={{ opacity: [1, 0] }}
         transition={{ duration: 0.6, repeat: Infinity, ease: "linear" }}
-        className="inline-block w-[2px] h-[1em] ml-1 bg-orange-400"
+        className="inline-block w-[2px] h-[1em] ml-1 bg-(--neon-ice)"
       />
     </motion.div>
   );

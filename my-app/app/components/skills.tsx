@@ -1,3 +1,8 @@
+
+
+
+"use client";
+
 import React from "react";
 import { motion } from "framer-motion";
 import { 
@@ -11,159 +16,182 @@ import {
   Globe 
 } from "lucide-react";
 
-// 1. Structured Skills Data Array with unique sub-labels
+// Each skill card gets a distinct surface & accent tone from your active 5-color palette
 const skillsData = [
-  { name: "Next.js", label: "App Architecture", icon: Globe, color: "text-slate-100", glow: "rgba(255,255,255,0.05)" },
-  { name: "React", label: "State Engines", icon: Layers, color: "text-cyan-400", glow: "rgba(34,211,238,0.1)" },
-  { name: "TypeScript", label: "Strict Typing", icon: FileJson, color: "text-blue-500", glow: "rgba(59,130,246,0.1)" },
-  { name: "JavaScript", label: "Async Logic", icon: Code2, color: "text-yellow-400", glow: "rgba(234,179,8,0.1)" },
-  { name: "Tailwind CSS", label: "Utility Styling", icon: Cpu, color: "text-cyan-400", glow: "rgba(34,211,238,0.1)" },
-  { name: "HTML5 / CSS3", label: "Semantic Layouts", icon: FileCode, color: "text-indigo-400", glow: "rgba(129,140,248,0.1)" },
-  { name: "Git", label: "Version Control", icon: GitBranch, color: "text-orange-500", glow: "rgba(249,115,22,0.1)" },
-  { name: "GitHub", label: "CI/CD & Storage", icon: GitBranch, color: "text-slate-300", glow: "rgba(203,213,225,0.05)" },
+  {
+    name: "Next.js",
+    label: "App Architecture",
+    detail: "SSR, App Router & Edge Performance",
+    icon: Globe,
+    cardBg: "bg-gradient-to-br from-[#F4F1EA] via-(--pale-oak) to-[#C2BBA5]",
+    border: "border-(--dark-slate-grey)/25",
+    iconBox: "bg-(--dark-slate-grey) text-(--neon-ice)",
+    accent: "text-[#087E96]",
+    corner: "bg-(--turquoise-surf)",
+  },
+  {
+    name: "React",
+    label: "State Engines",
+    detail: "Modular Hooks & Concurrent UI",
+    icon: Layers,
+    cardBg: "bg-gradient-to-br from-[#EDF5F4] via-[#DCEAE8] to-(--muted-teal)/55",
+    border: "border-(--muted-teal)/70",
+    iconBox: "bg-[#087E96] text-white",
+    accent: "text-[#087E96]",
+    corner: "bg-[#087E96]",
+  },
+  {
+    name: "TypeScript",
+    label: "Strict Typing",
+    detail: "End-to-End Type-Safe Interfaces",
+    icon: FileJson,
+    cardBg: "bg-gradient-to-br from-[#E6F8FA] via-[#D3F1F4] to-(--neon-ice)/35",
+    border: "border-(--turquoise-surf)/45",
+    iconBox: "bg-(--dark-slate-grey) text-(--turquoise-surf)",
+    accent: "text-[#087E96]",
+    corner: "bg-(--turquoise-surf)",
+  },
+  {
+    name: "JavaScript",
+    label: "Async Logic",
+    detail: "ES2024+, Event Loops & APIs",
+    icon: Code2,
+    cardBg: "bg-gradient-to-br from-[#F7F3E8] via-[#EBE3CE] to-(--pale-oak)/90",
+    border: "border-(--muted-teal)/50",
+    iconBox: "bg-[#1B2B2B] text-(--pale-oak)",
+    accent: "text-(--dark-slate-grey)",
+    corner: "bg-(--dark-slate-grey)",
+  },
+  {
+    name: "Tailwind CSS",
+    label: "Utility Styling",
+    detail: "Responsive Design Systems & Tokens",
+    icon: Cpu,
+    cardBg: "bg-gradient-to-br from-[#E3F4F4] via-[#CFE9E8] to-(--muted-teal)/65",
+    border: "border-(--turquoise-surf)/50",
+    iconBox: "bg-(--turquoise-surf) text-(--dark-slate-grey)",
+    accent: "text-[#087E96]",
+    corner: "bg-(--neon-ice)",
+  },
+  {
+    name: "HTML5 / CSS3",
+    label: "Semantic Layouts",
+    detail: "Accessible Grid, Flexbox & Motion",
+    icon: FileCode,
+    cardBg: "bg-gradient-to-br from-[#F5F2EB] via-[#E5DFD0] to-[#D4CCB8]",
+    border: "border-(--dark-slate-grey)/20",
+    iconBox: "bg-(--dark-slate-grey) text-(--pale-oak)",
+    accent: "text-[#087E96]",
+    corner: "bg-(--muted-teal)",
+  },
+  {
+    name: "Git",
+    label: "Version Control",
+    detail: "Branching Workflows & Clean Commits",
+    icon: GitBranch,
+    cardBg: "bg-gradient-to-br from-[#EAF3F2] via-[#D8E8E6] to-(--muted-teal)/50",
+    border: "border-(--muted-teal)/65",
+    iconBox: "bg-[#1B2B2B] text-(--neon-ice)",
+    accent: "text-[#087E96]",
+    corner: "bg-(--turquoise-surf)",
+  },
+  {
+    name: "GitHub",
+    label: "CI/CD & Storage",
+    detail: "Actions Pipelines & Vercel Deploys",
+    icon: GitBranch,
+    cardBg: "bg-gradient-to-br from-[#F2EFE7] via-[#E3ECEB] to-(--neon-ice)/25",
+    border: "border-(--turquoise-surf)/40",
+    iconBox: "bg-(--dark-slate-grey) text-(--turquoise-surf)",
+    accent: "text-[#087E96]",
+    corner: "bg-(--dark-slate-grey)",
+  },
 ];
 
 export default function Skills() {
-  // Separate into dual arrays specifically for the mobile loop track
-  const trackOne = skillsData.slice(0, 4);
-  const trackTwo = skillsData.slice(4);
-
   return (
-    <section id="skills" className=" px-4 sm:px-10 max-w-7xl mx-auto overflow-hidden antialiased">
-      
-      {/* 🌌 IMMERSIVE HEADER SECTION */}
-      <div className="mb-14 font-mono select-none text-orange-400">
-        <div className="text-[11px] font-semibold tracking-[0.2em] uppercase flex items-center gap-2.5">
-          <Terminal className="h-3.5 w-3.5 animate-pulse text-orange-400" />
+    <section
+      id="skills"
+      className="mx-auto max-w-7xl overflow-hidden px-4 py-14 sm:px-6 lg:px-8 antialiased"
+    >
+      {/* SECTION HEADER */}
+      <div className="mb-10 sm:mb-14 space-y-3 select-none">
+        <div className="inline-flex items-center gap-2.5 rounded-full border border-(--dark-slate-grey)/15 bg-(--pale-oak)/60 px-3.5 py-1.5 font-mono text-[11px] font-semibold tracking-[0.2em] uppercase text-(--dark-slate-grey)">
+          <Terminal className="h-3.5 w-3.5 animate-pulse text-[#087E96]" />
           <span>// Verified Technology Stack</span>
         </div>
+
+        <h2 className="font-sans text-3xl font-black tracking-tight text-(--dark-slate-grey) sm:text-4xl lg:text-5xl">
+          Core <span className="text-[#087E96] font-serif italic font-semibold pl-3 "> Architecture</span>
+          <span className="font-light text-(--turquoise-surf)">.</span>
+        </h2>
       </div>
 
-   
+      {/* UNIFIED LARGER CARDS GRID (1-col Mobile -> 2-col Tablet -> 4-col Laptop) */}
+      <div className="grid w-full grid-cols-2 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        {skillsData.map((skill, idx) => {
+          const IconComponent = skill.icon;
 
-
-      <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-5 w-full">
-  {skillsData.map((skill, idx) => {
-    const IconComponent = skill.icon;
-    const isNext = skill.name === "Next.js";
-
-    return (
-      <motion.div
-        key={idx}
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.6, delay: idx * 0.04, ease: [0.16, 1, 0.3, 1] }}
-        // Premium 3D magnetic hover parameters
-        whileHover={{ 
-          scale: 1.03, 
-          y: -5,
-          rotateX: 1.5,
-          rotateY: -1.5,
-        }}
-        style={{ transformStyle: "preserve-3d" }}
-        className={`relative flex items-center gap-4 p-5 rounded-2xl border backdrop-blur-xl cursor-pointer transition-all duration-300 group overflow-hidden ${
-          isNext 
-            ? "border-emerald-500/80 bg-gradient-to-br from-indigo-950/20 via-slate-900/60 to-slate-950/90 shadow-[0_0_25px_rgba(129,140,248,0.12)]" 
-            : "border-slate-800/60 bg-gradient-to-b from-slate-900/40 to-slate-950/80 hover:border-slate-700/80"
-        }`}
-      >
-        {/* 🌌 IMMERSIVE AMBIENT BACKGROUND GLOW BACKDROP */}
-        <div 
-          className="absolute -right-4 -bottom-4 w-24 h-24 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none blur-2xl"
-          style={{ 
-            background: isNext ? 'rgba(129, 140, 248, 0.2)' : skill.glow.replace('0.1', '0.25') 
-          }} 
-        />
-
-        {/* 💻 TECH ICON WRAPPER FRAME (Colors Fixed Now!) */}
-        <div 
-          className={`p-3.5 rounded-xl bg-slate-950/90 border shadow-inner transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-3 ${skill.color} ${
-            isNext 
-              ? "border-indigo-500/40" 
-              : "border-slate-900 group-hover:border-slate-800"
-          }`}
-          style={{ transform: "20px" }} // Pushes icon forward in 3D perspective space
-        >
-          <IconComponent className="h-5 w-5" />
-        </div>
-
-        {/* ✍️ TEXT LABELS SUITE */}
-        <div className="flex flex-col justify-center select-none" style={{ transform: "10px" }}>
-          
-          {/* Main Skill Title */}
-          <span className="font-sans text-sm font-black tracking-wide text-slate-100 transition-colors group-hover:text-white">
-            {skill.name}
-          </span>
-          
-          {/* Terminal Command Sublabel */}
-          <div className="flex items-center gap-1 mt-1">
-            <span className={`font-mono text-[9px] font-bold ${isNext ? 'text-indigo-400/70' : 'text-cyan-500/50 group-hover:text-cyan-400/80'} transition-colors`}>
-              \$
-            </span>
-            <span className="font-mono text-[10px] text-slate-500 tracking-wider uppercase font-medium">
-              {skill.label}
-            </span>
-          </div>
-
-        </div>
-
-        {/* 🚀 DECORATIVE TERMINAL TOP-RIGHT BOUNDARY CORNER LINE */}
-        <div className={`absolute top-0 right-0 w-8 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
-          isNext ? 'bg-indigo-400' : 'bg-cyan-400'
-        }`} />
-        <div className={`absolute top-0 right-0 w-[2px] h-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
-          isNext ? 'bg-indigo-400' : 'bg-cyan-400'
-        }`} />
-
-      </motion.div>
-    );
-  })}
-</div>
-
-
-
-      {/* 📱 MOBILE VIEW: DUAL ALTERNATING INFINITE MARQUEE TRACKS (Hidden on Desktop) */}
-      <div className="flex md:hidden flex-col gap-4 w-full relative">
-        
-        {/* Track 01: Moving Left */}
-        <div className="flex overflow-hidden w-full mask-gradient">
-          <motion.div 
-            animate={{ x: [0, -1000] }}
-            transition={{ ease: "linear", duration: 30, repeat: Infinity }}
-            className="flex flex-row gap-4 shrink-0 pr-4"
-          >
-            {[...trackOne, ...trackOne, ...trackOne].map((skill, idx) => {
-              const IconComponent = skill.icon;
-              return (
-                <div key={idx} className="flex items-center gap-3 px-5 py-3 rounded-xl border border-slate-800/60 bg-slate-900/40 backdrop-blur-sm shrink-0">
-                  <IconComponent className={`h-4 w-4 ${skill.color}`} />
-                  <span className="font-sans text-xs font-bold text-slate-200">{skill.name}</span>
+          return (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{
+                duration: 0.6,
+                delay: idx * 0.05,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              whileHover={{
+                scale: 1.025,
+                y: -6,
+              }}
+              className={`group relative flex min-h-[175px] sm:min-h-[195px] cursor-pointer flex-col justify-between overflow-hidden rounded-[15px] border p-6 sm:p-7 shadow-[0_14px_35px_-12px_rgba(43,65,65,0.22)] ring-1 ring-white/50 transition-all duration-300 hover:shadow-[0_22px_45px_-10px_rgba(43,65,65,0.32)] ${skill.cardBg} ${skill.border}`}
+            >
+              {/* Top Row: Larger Icon Badge + Index Number */}
+              <div className="flex items-start justify-between">
+                <div
+                  className={`grid size-12 sm:size-13 place-items-center rounded-[6px] shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 ${skill.iconBox}`}
+                >
+                  <IconComponent className="h-6 w-6" />
                 </div>
-              );
-            })}
-          </motion.div>
-        </div>
 
-        {/* Track 02: Moving Right */}
-        <div className="flex overflow-hidden w-full mask-gradient">
-          <motion.div 
-            animate={{ x: [-1000, 0] }}
-            transition={{ ease: "linear", duration: 25, repeat: Infinity }}
-            className="flex flex-row gap-4 shrink-0 pr-4"
-          >
-            {[...trackTwo, ...trackTwo, ...trackTwo].map((skill, idx) => {
-              const IconComponent = skill.icon;
-              return (
-                <div key={idx} className="flex items-center gap-3 px-5 py-3 rounded-xl border border-slate-800/60 bg-slate-900/40 backdrop-blur-sm shrink-0">
-                  <IconComponent className={`h-4 w-4 ${skill.color}`} />
-                  <span className="font-sans text-xs font-bold text-slate-200">{skill.name}</span>
+                <span className="font-mono text-[11px] font-bold tracking-widest text-(--dark-slate-grey)/40">
+                  0{idx + 1}
+                </span>
+              </div>
+
+              {/* Bottom Row: Skill Name, Command Label & Short Detail */}
+              <div className="mt-6 space-y-1.5 select-none">
+                <h3 className="font-sans text-lg sm:text-xl font-black tracking-tight text-(--dark-slate-grey)">
+                  {skill.name}
+                </h3>
+
+                <div className="flex items-center gap-1.5">
+                  <span className={`font-mono text-[11px] font-bold ${skill.accent}`}>
+                    $
+                  </span>
+                  <span className="font-mono text-[11px] font-semibold tracking-wider uppercase text-(--dark-slate-grey)/75">
+                    {skill.label}
+                  </span>
                 </div>
-              );
-            })}
-          </motion.div>
-        </div>
 
+                <p className="pt-1 font-sans text-xs leading-relaxed text-(--dark-slate-grey)/70">
+                  {skill.detail}
+                </p>
+              </div>
+
+              {/* Decorative Corner Accent Lines */}
+              <div
+                className={`absolute top-0 right-0 h-[3px] w-10 opacity-40 transition-opacity duration-300 group-hover:opacity-100 ${skill.corner}`}
+              />
+              <div
+                className={`absolute top-0 right-0 h-10 w-[3px] opacity-40 transition-opacity duration-300 group-hover:opacity-100 ${skill.corner}`}
+              />
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );

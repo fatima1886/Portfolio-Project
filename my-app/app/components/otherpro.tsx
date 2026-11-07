@@ -1,5 +1,10 @@
+
+
+
+"use client";
+
 import React from "react";
-import { motion } from "framer-motion"; // 🌌 Imported Framer Motion
+import { motion } from "framer-motion";
 import { Code2, ArrowUpRight, Cpu } from "lucide-react";
 
 export default function Projectsother({ heading1, heading2, para, array, github, versel, img }: {
@@ -12,85 +17,84 @@ export default function Projectsother({ heading1, heading2, para, array, github,
   img: string;
 }) {
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:pt-0 ">
-      {/* 🌌 ANIMATED IMMERSIVE CARD CONTAINER */}
+    <div className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 md:pt-0 lg:px-8">
+      {/* ANIMATED LIGHT PROJECT CARD (REVERSED LAYOUT) */}
       <motion.div 
-        // Scroll configuration settings
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }} // Triggers early when 100px into viewport
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} // Premium custom cubic-bezier ease
-        // className="flex flex-col lg:flex-row items-stretch justify-between gap-10 lg:gap-16 w-full p-6 sm:p-10 lg:p-12 rounded-2xl border border-[#818CF8]/30 bg-gradient-to-b from-slate-900/60 hover:shadow hover:shadow-md hover:shadow-cyan-400 hover:scale-[1.02] transition duration-100 to-slate-950/80 backdrop-blur-xl shadow-2xl relative group overflow-hidden"
-        className="flex flex-col lg:flex-row items-stretch justify-between gap-10 lg:gap-16 w-full p-6 sm:p-10 lg:p-12 rounded-2xl border border-[#818CF8]/30 bg-gradient-to-b from-slate-900/60 to-slate-950/80 backdrop-blur-xl relative group overflow-hidden shadow-2xl transition-all duration-300 ease-out hover:scale-[1.02] hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(34,211,238,0.15)]"
-
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="group relative flex w-full flex-col items-stretch justify-between gap-10 overflow-hidden rounded-[20px] border border-white/50 bg-gradient-to-br from-[#F4F1EA] via-(--pale-oak) to-[#C2BBA5] p-6 shadow-[0_24px_60px_-15px_rgba(0,0,0,0.45)] ring-1 ring-(--muted-teal)/40 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-[0_30px_70px_-10px_rgba(0,0,0,0.55),0_0_30px_rgba(52,228,234,0.14)] sm:p-10 lg:flex-row lg:gap-16 lg:p-12"
       >
         
-        {/* Decorative inner corner glow */}
-        <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-indigo-500/5 blur-[80px] rounded-full pointer-events-none transition-opacity group-hover:opacity-80" />
+        {/* Subtle decorative inner highlight */}
+        <div className="pointer-events-none absolute -top-24 -left-24 h-[320px] w-[320px] rounded-full bg-(--light-surface)/12 blur-[80px] transition-opacity duration-500 group-hover:opacity-100" />
 
-
- <motion.div 
-          initial={{ opacity: 0, scale: 0.95, x: 20 }}
+        {/* LEFT COLUMN: DARK CONTRAST BROWSER MOCKUP */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95, x: -20 }}
           whileInView={{ opacity: 1, scale: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-          // 🚀 Cinematic hover state adjustments: Scales up slightly and tilts backward matching space look
-          whileHover={{ scale: 1.02, rotateX: 2, rotateY: -2 }}
-          className="flex-1 w-full lg:max-w-lg xl:max-w-xl self-center group/mockup relative perspective-className"
+          whileHover={{ scale: 1.02, rotateX: 2, rotateY: 2 }}
+          className="group/mockup relative w-full flex-1 self-center lg:max-w-lg xl:max-w-xl"
           style={{ transformStyle: "preserve-3d" }}
         >
           
           {/* Subtle Ambient Outer Glow */}
-          <div className="absolute -inset-1 rounded-xl bg-gradient-to-tr from-indigo-500/10 to-purple-500/5 opacity-40 blur-xl group-hover/mockup:opacity-70 transition-opacity duration-700" />
+          <div className="absolute -inset-1.5 rounded-[12px] bg-gradient-to-tr from-(--turquoise-surf)/25 to-(--dark-slate-grey)/15 opacity-50 blur-xl transition duration-700 group-hover/mockup:opacity-80" />
           
-          {/* The Visual Container Canvas Frame */}
-          <div className="relative overflow-hidden rounded-xl border border-slate-800/90 bg-slate-950/80 p-1.5 shadow-2xl transition-all duration-200 group-hover/mockup:border-indigo-500/30">
+          {/* Dark Window Frame */}
+          <div className="relative overflow-hidden rounded-[12px] border border-(--dark-slate-grey)/20 bg-[#1B2B2B] p-1.5 shadow-[0_20px_45px_rgba(27,43,43,0.35)] transition-all duration-200 group-hover/mockup:border-(--turquoise-surf)/50">
             
-            {/* Window Header bar */}
-            <div className="flex items-center justify-between px-3.5 py-2.5 border-b border-slate-900 bg-slate-950 font-mono text-[10px] text-slate-500 select-none">
-              <div className="flex gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-500" />
-                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
-                <span className="w-2.5 h-2.5 rounded-full bg-green-500" />
+            {/* Window Header Bar */}
+            <div className="flex select-none items-center justify-between border-b border-(--muted-teal)/15 bg-(--dark-slate-grey) px-3.5 py-2.5 font-mono text-[10px] text-(--muted-teal)">
+              <div className="flex gap-1.5">
+                <span className="size-2.5 rounded-full bg-(--pale-oak)/40" />
+                <span className="size-2.5 rounded-full bg-(--muted-teal)/70" />
+                <span className="size-2.5 rounded-full bg-(--turquoise-surf)" />
               </div>
-              <span className="flex items-center gap-1.5 text-slate-400/70 font-medium">
-                <Cpu className="h-3 w-3 text-emerald-400/60" /> 
+              <span className="flex items-center gap-1.5 font-medium text-(--pale-oak)/80">
+                <Cpu className="h-3 w-3 text-(--neon-ice)" /> 
                 network_preview.png
               </span>
             </div>
 
-            {/* 📸 The Image Tag Frame */}
-            <div className="relative overflow-hidden bg-slate-900 rounded-b-lg aspect-[16/10]">
+            {/* Screenshot Frame */}
+            <div className="relative aspect-[16/10] overflow-hidden rounded-b-xl bg-[#142020]">
               <img 
                 src={img} 
-                alt="AI Interface Generator Preview Workspace" 
-                className="w-full h-full object-contain brightness-[0.9] group-hover/mockup:brightness-100 group-hover/mockup:scale-[1.01] transition-all duration-700 ease-out"
+                alt={`${heading1} ${heading2} preview`} 
+                className="h-full w-full object-contain brightness-[0.95] transition-all duration-700 ease-out group-hover/mockup:scale-[1.01] group-hover/mockup:brightness-100"
                 loading="lazy"
               />
             </div>
 
           </div>
         </motion.div>
-        {/* 💻 LEFT COLUMN: TECHNICAL TEXT SUITE */}
-        <div className="md:flex-1 flex flex-col justify-between space-y-6 lg:space-y-0">
+
+        {/* RIGHT COLUMN: PROJECT DETAILS & ACTIONS */}
+        <div className="flex flex-col justify-between space-y-6 md:flex-1 lg:space-y-0">
           
           <motion.div 
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-4"
           >
-            <h3 className="font-sans text-3xl font-black tracking-tight sm:text-4xl lg:text-5xl text-slate-100 leading-none">
-              {heading1} <span className="text-emerald-400">{heading2}</span><span className="text-emerald-400 font-light">.</span>
+            <h3 className="font-sans text-3xl font-black leading-tight tracking-tight text-(--dark-slate-grey) sm:text-4xl lg:text-5xl">
+              {heading1}{" "}
+              <span className="text-[#087E96]">{heading2}</span>
+              <span className="font-light text-(--turquoise-surf)">.</span>
             </h3>
 
-            <p className="font-sans text-sm sm:text-base leading-relaxed text-slate-400 max-w-xl font-normal tracking-wide">
+            <p className="max-w-xl font-sans text-sm font-normal leading-relaxed tracking-wide text-(--dark-slate-grey)/80 sm:text-base">
               {para}
             </p>
           </motion.div>
 
-          {/* TECH ARCHITECTURE TOKENS & INTERACTION CONTAINER */}
+          {/* TECH TAGS & BUTTONS */}
           <div className="space-y-6 pt-4 lg:pt-0">
             {/* Tag Badges */}
             <motion.div 
@@ -103,38 +107,40 @@ export default function Projectsother({ heading1, heading2, para, array, github,
               {array.map((tag, idx) => (
                 <span 
                   key={idx}
-                  className="font-mono text-[10px] font-medium px-2.5 py-1 rounded-md bg-slate-950 text-slate-400 border border-slate-800/70 tracking-wider shadow-inner"
+                  className="rounded-lg border border-(--dark-slate-grey)/15 bg-(--dark-slate-grey)/8 px-3 py-1 font-mono text-[11px] font-semibold tracking-wider text-(--dark-slate-grey) transition-colors group-hover:border-(--dark-slate-grey)/25"
                 >
                   {tag}
                 </span>
               ))}
             </motion.div>
 
-            {/* Interaction Action Row */}
+            {/* Action Buttons */}
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5, duration: 0.5 }}
-              className="flex flex-wrap items-center gap-4"
+              className="flex flex-wrap items-center gap-3.5"
             >
+              {/* Primary CTA: Dark Slate Grey button with Neon Ice accent */}
               <a 
                 href={versel} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="group font-sans text-xs font-bold tracking-wider uppercase px-5 py-3.5 rounded-lg bg-emerald-400 text-slate-800 hover:bg-emerald-500 transition-all flex items-center gap-2 shadow-md shadow-white/5 active:scale-[0.98]"
+                className="group/btn inline-flex items-center gap-2 rounded-[6px] bg-(--dark-slate-grey) px-5 py-3.5 font-sans text-xs font-bold tracking-wider uppercase text-(--pale-oak) shadow-lg shadow-(--dark-slate-grey)/20 transition-all duration-200 hover:bg-[#1B2B2B] hover:text-(--neon-ice) active:scale-[0.98]"
               >
                 <span>Live Deployment</span>
-                <ArrowUpRight className="h-3.5 w-3.5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <ArrowUpRight className="h-4 w-4 text-(--neon-ice) transition-transform duration-200 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
               </a>
 
+              {/* Secondary CTA: Crisp Outlined Dark Slate button */}
               <a 
                 href={github} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="font-sans text-xs font-semibold tracking-wider uppercase px-5 py-3.5 rounded-lg border border-emerald-400 bg-transparent text-slate-400 hover:border-slate-700 hover:text-slate-200 transition-all flex items-center gap-2 backdrop-blur-sm active:scale-[0.98]"
+                className="inline-flex items-center gap-2 rounded-[6px] border border-(--dark-slate-grey)/30 bg-white/35 px-5 py-3.5 font-sans text-xs font-bold tracking-wider uppercase text-(--dark-slate-grey) backdrop-blur-sm transition-all duration-200 hover:border-(--dark-slate-grey) hover:bg-(--dark-slate-grey)/10 active:scale-[0.98]"
               >
-                <Code2 className="h-3.5 w-3.5" />
+                <Code2 className="h-4 w-4 text-[#087E96]" />
                 <span>Source Code</span>
               </a>
             </motion.div>
@@ -142,10 +148,8 @@ export default function Projectsother({ heading1, heading2, para, array, github,
 
         </div>
 
-        {/* 🎨 RIGHT COLUMN: APPLICATION CANVAS WINDOW MOCKUP WITH HOVER TILT */}
-       
-
       </motion.div>
     </div>
   );
 }
+

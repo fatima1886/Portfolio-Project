@@ -1,113 +1,3 @@
-// "use client";
-// import React from 'react';
-
-// const Herotext = () => {
-//   // Split your title name so we can apply precise staggered loading animations
-//   const nameFirst = "Fatima";
-//   const nameLast = "Noor";
-
-//   return (
-//     <div
-//       className="flex flex-col items-start space-y-6 max-w-xl px-4 md:px-0"
-//     >
-//       {/* Role Badge Container */}
-//       <div
-//         className="inline-flex items-center text-sm md:text-base font-mono text-cyan-400 bg-cyan-950/20 border border-cyan-500/20 px-4 py-2 rounded-full tracking-wide backdrop-blur-sm"
-//       >
-//         <span className="opacity-60 mr-1.5">//</span> Frontend Developer
-//       </div>
-
-//       {/* Main Streaming Interactive Header */}
-//       <h1
-//         className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-slate-100 tracking-tight leading-none"
-//       >
-//         <span className="block sm:inline">{nameFirst} </span>
-//         <span className="text-indigo-400 block sm:inline drop-shadow-[0_0_15px_rgba(129,140,248,0.15)]">
-//           {nameLast}
-//         </span>
-//       </h1>
-
-//       {/* Catchy Supporting Value Subtitle */}
-//       <p
-//         className="text-base md:text-lg text-slate-400 leading-relaxed font-normal"
-//       >
-//         Building fast, interactive, and beautifully accessible user experiences with Next.js, React, and TypeScript.
-//       </p>
-//     </div>
-//   );
-// };
-
-// export default Herotext;
-
-
-// "use client";
-
-// import React, { useEffect } from 'react';
-// import { DynamicRoleBadge } from './roles';
-// import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-
-// export const StreamingSpan = ({ text, delay = 0, duration = 0.5 }: { text: string; delay?: number; duration?: number }) => {
-//   const count = useMotionValue(0);
-//   const rounded = useTransform(count, (latest) => Math.floor(latest));
-//   const displayText = useTransform(rounded, (latest) => text.slice(0, latest));
-
-//   useEffect(() => {
-//     const controls = animate(count, text.length, {
-//       type: "tween",
-//       duration: duration,
-//       delay: 0.4,
-//       ease: "linear",
-//     });
-//     return () => controls.stop();
-//   }, [text, count, delay, duration]);
-
-//   return <motion.span>{displayText}</motion.span>;
-// };
-
-// const Herotext = () => {
-//   const nameFirst = "Fatima";
-//   const nameLast = "Noor";
-
-
-//   return (
-//     <div className="flex flex-col items-start space-y-6 max-w-xl px-4 pt-20 md:px-0">
-      
-//     <DynamicRoleBadge/>
-
-//       {/* Main Streaming Interactive Header */}
-//       <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-slate-100 tracking-tight leading-none">
-//         <span className="block sm:inline">
-//           {/* Streams immediately after the layout renders */}
-//           <StreamingSpan text={nameFirst} delay={0.2} duration={0.4} />{" "}
-//         </span>
-//         <span className="text-indigo-400 block sm:inline drop-shadow-[0_0_15px_rgba(129,140,248,0.15)]">
-//           {/* Streams cleanly after the first name finishes */}
-//           <StreamingSpan text={nameLast} delay={0.6} duration={0.3} />
-//         </span>
-//         {/* Blinking cursor that disappears gracefully after typing finishes */}
-//         <motion.span
-//           animate={{ opacity: [1, 0, 1] }}
-//           transition={{ duration: 0.8, repeat: 4, ease: "linear" }}
-//           exit={{ opacity: 0 }}
-//           className="inline-block w-[4px] h-[0.85em] ml-2 bg-indigo-400 translate-y-1"
-//         />
-//       </h1>
-
-//       {/* Catchy Supporting Value Subtitle */}
-//       <motion.p
-//         initial={{ opacity: 0, y: 10 }}
-//         animate={{ opacity: 1, y: 0 }}
-//         transition={{ duration: 0.6, delay: 1.1 }}
-//         className="text-base md:text-lg text-slate-400 leading-relaxed font-normal pt-10"
-//       >
-//         Building fast, interactive, and beautifully accessible user experiences with Next.js, React, and TypeScript.
-//       </motion.p>
-//     </div>
-//   );
-// };
-
-// export default Herotext;
-
 
 "use client";
 
@@ -165,10 +55,14 @@ const Herotext = () => {
   return (
     <div className="flex flex-col items-start pt-10 md:pt-0">
       <DynamicRoleBadge/>
-<h1 className="text-4xl sm:text-5xl md:text-8xl font-bold md:font-extrabold tracking-tight leading-none min-h-[1.1em] flex flex-col items-start justify-center gap-2">
+<h1 className="text-4xl sm:text-5xl md:text-8xl
+
+font-bold md:font-extrabold tracking-tight
+font-serif italic   font-bold tracking-normal bg-[#087E96]  bg-clip-text text-transparent
+ leading-none min-h-[1.1em] flex flex-col items-start justify-center gap-2">
   
   {/* First Name Column - Forced into its own block row */}
-  <span className="block text-slate-100 whitespace-nowrap">
+  <span className="block text-(--pale-oak) whitespace-nowrap">
     {nameFirst.split("").map((char, index) => (
       <StaggeredLetter 
         key={`first-${index}`} 
@@ -180,7 +74,8 @@ const Herotext = () => {
   </span>
 
   {/* Last Name Column - Forced into its own block row beneath */}
-  <span className="text-emerald-400 block drop-shadow-[0_0_15px_rgba(129,140,248,0.15)] whitespace-nowrap">
+  <span className="text-(--turquoise-surf)
+   block drop-shadow-[0_0_15px_rgba(129,140,248,0.15)] whitespace-nowrap">
     {nameLast.split("").map((char, index) => (
       <StaggeredLetter 
         key={`last-${index}`} 
@@ -201,7 +96,7 @@ const Herotext = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 1.1 }}
         // 💡 FIXED PADDING: Removed "pt-10". Controlled cleanly by the parent container's "space-y-4" class.
-        className="text-base md:text-lg text-slate-400 leading-relaxed font-normal pt-2"
+        className="text-base md:text-lg text-(--muted-teal) leading-relaxed font-normal pt-2"
       >
 Every project I build starts with a simple question: How will a human feel when they interact with this screen? I treat development as a story told through smooth transitions, immediate load times, and perfect accessibility.   </motion.p>
 
@@ -213,7 +108,7 @@ Every project I build starts with a simple question: How will a human feel when 
       className="flex flex-col sm:flex-row items-center py-8 gap-4 pt-6 w-full sm:w-auto"
     >
       {/* 🚀 PRIMARY CALL TO ACTION: GET IN TOUCH */}
-      <motion.a
+      {/* <motion.a
         href="#contact" // Update with your actual contact address/link
         whileHover={{ scale: 1.03, y: -2 }}
         whileTap={{ scale: 0.98 }}
@@ -221,22 +116,34 @@ Every project I build starts with a simple question: How will a human feel when 
       >
         <span>Get In Touch</span>
         <ArrowUpRight className="h-4 w-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-emerald-400" />
-      </motion.a>
+      </motion.a> */}
+
+      <motion.a
+  href="#contact"
+  whileHover={{ scale: 1.02, y: -1 }}
+  whileTap={{ scale: 0.98 }}
+  className="group relative inline-flex w-full sm:w-auto items-center justify-center gap-2.5  rounded-[5px] bg-(--turquoise-surf) px-7 py-3.5 font-sans text-xs font-semibold tracking-widest uppercase text-(--dark-slate-grey) shadow-lg shadow-(--turquoise-surf)/20 ring-1 ring-(--neon-ice)/40 transition-all duration-200 hover:bg-(--neon-ice) hover:shadow-(--neon-ice)/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--pale-oak)"
+>
+  <span>Get In Touch</span>
+  <ArrowUpRight className="h-4 w-4 stroke-[2.25] text-(--dark-slate-grey) transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+</motion.a>
+
 
       {/* 🌌 SECONDARY CALL TO ACTION: EXPLORE PROJECTS */}
-      <motion.a
-        href="#projects"
-        onClick={handleScrollToProjects}
-        whileHover={{ scale: 1.03, y: -2 }}
-        whileTap={{ scale: 0.98 }}
-        className="group w-full sm:w-auto text-center font-sans text-xs font-bold tracking-wider uppercase px-7 py-4 rounded-xl border border-emerald-400 bg-slate-950/40 text-slate-400 hover:border-indigo-400/40 hover:text-slate-200 transition-all flex items-center justify-center gap-2.5 backdrop-blur-sm relative overflow-hidden"
-      >
-        {/* Subtle hover background accent mimicking your card wrapper styling */}
-        <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/0 via-indigo-500/5 to-indigo-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        
-        <Compass className="h-4 w-4 text-orange-300 group-hover:rotate-45 transition-transform duration-500" />
-        <span>Explore Projects</span>
-      </motion.a>
+     <motion.a
+  href="#projects"
+  onClick={handleScrollToProjects}
+  whileHover={{ scale: 1.02, y: -1 }}
+  whileTap={{ scale: 0.98 }}
+  className="group relative inline-flex w-full sm:w-auto items-center justify-center gap-2.5 overflow-hidden rounded-[14px] border border-(--muted-teal)/45 bg-(--dark-slate-grey)/50 px-7 py-3.5 font-sans text-xs font-semibold tracking-widest uppercase text-(--pale-oak) backdrop-blur-md transition-all duration-200 hover:border-(--neon-ice) hover:bg-(--muted-teal)/15 hover:text-(--neon-ice) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--pale-oak)"
+>
+  {/* Subtle shimmer sweep matching your palette */}
+  <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent via-(--neon-ice)/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+  <Compass className="relative z-10 h-4 w-4 stroke-[2] text-(--muted-teal) transition-all duration-500 group-hover:rotate-45 group-hover:text-(--neon-ice)" />
+  <span className="relative z-10">Explore Projects</span>
+</motion.a>
+
     </motion.div>
     </div>
   );

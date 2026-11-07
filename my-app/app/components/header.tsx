@@ -1,6 +1,9 @@
+
+
+
 "use client";
 import React, { useState } from 'react';
-import Link from 'next/link'; // Import the official Next.js Link component
+import Link from 'next/link';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,7 +12,6 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
 
-  // Define links as objects containing both the display label and the target section ID
   const navLinks = [
     { label: 'Home', id: '#home' },
     { label: 'Projects', id: '#projects' },
@@ -19,22 +21,25 @@ const Header = () => {
   ];
 
   return (
-    <header className="relative w-full  backdrop-blur-md sticky top-0 z-50">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <header className="sticky top-0 z-50 w-full border-b border-(--dark-slate-grey)/15 bg-(--pale-oak) backdrop-blur-md">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6 py-3.5 sm:py-4">
         
-        {/* Logo links back to the top of the home page */}
-        <Link  href="#home" className="text-xl font-semibold  tracking-tight text-orange-400 hover:opacity-80 transition-opacity">
-          <span className='text-emerald-400 sans-serif'>fatima</span>.dev()
+        {/* Logo */}
+        <Link 
+          href="#home" 
+          className="font-mono text-lg sm:text-xl font-bold tracking-tight text-[#087E96] transition-opacity hover:opacity-80"
+        >
+          <span className="font-sans text-(--dark-slate-grey)">fatima</span>.dev()
         </Link>
 
         {/* Desktop Navigation Links */}
         <nav className="hidden md:flex items-center gap-8">
-          <ul className="flex items-center gap-6 text-sm font-medium text-[#F1F5F9]">
+          <ul className="flex items-center gap-7 text-sm font-semibold text-(--dark-slate-grey)">
             {navLinks.map((link) => (
               <li key={link.id}>
                 <Link 
                   href={link.id} 
-                  className="cursor-pointer  hover:text-emerald-400 transition-colors py-2"
+                  className="cursor-pointer py-2 transition-colors hover:text-[#087E96]"
                 >
                   {link.label}
                 </Link>
@@ -43,33 +48,34 @@ const Header = () => {
           </ul>
         </nav>
 
-        {/* Hamburger Toggle Button (Mobile Only) */}
+        {/* Hamburger Toggle Button (Mobile Only - Matched to Palette) */}
         <button
           onClick={toggleMenu}
           type="button"
-          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-lg border border-slate-200 p-2 text-slate-600 md:hidden hover:bg-slate-50 transition-colors"
+          className="flex h-9 w-9 sm:h-10 sm:w-10 flex-col items-center justify-center gap-1.5 rounded-lg   p-2 text-(--dark-slate-grey) transition-colors hover:border-(--dark-slate-grey)/40 hover:bg-(--dark-slate-grey)/10 md:hidden"
           aria-label="Toggle navigation menu"
+          aria-expanded={isOpen}
         >
-          <span className={`h-0.5 w-5 bg-current transition-transform duration-300 ${isOpen ? 'translate-y-2 rotate-45' : ''}`} />
-          <span className={`h-0.5 w-5 bg-current transition-opacity duration-300 ${isOpen ? 'opacity-0' : ''}`} />
-          <span className={`h-0.5 w-5 bg-current transition-transform duration-300 ${isOpen ? '-translate-y-2 -rotate-45' : ''}`} />
+          <span className={`h-0.5 w-5 rounded-full bg-current transition-transform duration-300 ${isOpen ? 'translate-y-2 rotate-45' : ''}`} />
+          <span className={`h-0.5 w-5 rounded-full bg-current transition-opacity duration-300 ${isOpen ? 'opacity-0' : ''}`} />
+          <span className={`h-0.5 w-5 rounded-full bg-current transition-transform duration-300 ${isOpen ? '-translate-y-2 -rotate-45' : ''}`} />
         </button>
       </div>
 
-      {/* Mobile Navigation Dropdown Overlay */}
+      {/* Mobile Navigation Dropdown Overlay (Matched to Palette) */}
       <div
-        className={`absolute top-full left-0 w-full border-b border-slate-200 bg-[#0B1020] transition-all duration-300 ease-in-out md:hidden ${
+        className={`absolute top-full left-0 w-full border-b border-(--muted-teal)/30 bg-(--dark-slate-grey)/98 backdrop-blur-md shadow-xl transition-all duration-300 ease-in-out md:hidden ${
           isOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-2 invisible pointer-events-none'
         }`}
       >
-        <nav className="px-6 py-6">
-          <ul className="flex flex-col gap-4 text-base font-medium text-emerald-400">
+        <nav className="mx-auto max-w-6xl px-5 py-5">
+          <ul className="flex flex-col gap-1 text-sm font-medium text-(--pale-oak)">
             {navLinks.map((link) => (
               <li key={link.id} className="w-full">
                 <Link 
                   href={link.id}
-                  onClick={() => setIsOpen(false)} // Closes mobile menu smoothly upon picking a destination section
-                  className="block w-full cursor-pointer py-2 border-b border-slate-50 last:border-0  transition-colors"
+                  onClick={() => setIsOpen(false)}
+                  className="block w-full cursor-pointer rounded-lg border-b border-(--muted-teal)/15 px-3 py-3 transition-colors last:border-0 hover:bg-(--muted-teal)/10 hover:text-(--neon-ice)"
                 >
                   {link.label}
                 </Link>
@@ -83,3 +89,4 @@ const Header = () => {
 };
 
 export default Header;
+
