@@ -167,8 +167,8 @@ export default function Home() {
   heading2="Builder"
             para="I built this AI Resume Architect because traditional application tools are rigid and broken. Turning to Next.js, I first integrated Clerk to secure personal account infrastructure. From there, I mastered nested React state states to ensure that user inputs seamlessly materialize onto a live, print-ready document preview, while a custom AI assistant tracks inputs to rewrite bullets into career headlines." 
   array={['Next.js 15', 'TypeScript', 'Clerk Auth', 'Tailwind CSS']}
-  github="https://github.com"
-  versel="https://vercel.app"
+  github="https://github.com/fatima1886/AI-Resume-Builder-SaaS.git" 
+            versel="https://ai-resume-builder-saa-s-g2da.vercel.app/" 
   img="resume.png"
   cardBg="bg-(--pale-oak)"
   overlayBg="bg-(--muted-teal)/45"
